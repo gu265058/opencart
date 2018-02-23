@@ -6,9 +6,7 @@
     <classes>
       <class name="com.wipro.testcaes.RegAndAddToCartTcase">
         <methods>
-          <include name="registration" invocation-numbers="0"/>
           <include name="extendreports"/>
-          <include name="addToWishlist"/>
           <include name="logout"/>
           <include name="addToCart"/>
           <include name="launchBrowser"/>

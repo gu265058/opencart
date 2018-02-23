@@ -7,6 +7,11 @@ import java.io.IOException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+//'**********************************************************
+//'* Method/class			: ExcelSheet
+//'* Method  Description	: This method  will help us to handel the excel and implement the actions in our project
+//'* Created By				: gu265058
+//'**********************************************************
 public class ExcelSheet {
 	XSSFSheet sheet;
 	XSSFWorkbook workbook;

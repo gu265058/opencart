@@ -43,4 +43,8 @@ public MyAccountPage insertCredentials(String emailAddress, String password){
 		loginBtn.click();
 		return new MyAccountPage(driver);
 	}
+public static HomePage clickCreateAccount() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

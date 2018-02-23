@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 //'* Method  Description	: This method  will have all the details of the Myaccount page
 //'* Created By				: gu265058
 //'* Created Date			: 21-Dec-2017 
-//'* Input Parameter		: url,    - URL name were used
-
 //'**********************************************************
 public class MyAccountPage {
 	WebDriver driver;

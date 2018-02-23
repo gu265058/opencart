@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 //'* Method  Description	: This method  will have all the common actions/functions
 //'* Created By				: gu265058
 //'* Created Date			: 21-Dec-2017 
-//'* Input Parameter		: url,    - URL name were used
+
 
 //'**********************************************************
 
@@ -20,11 +20,20 @@ public class Commonactions {
 	
 	@FindBy(how=How.LINK_TEXT, using="login")
 	WebElement login;
+
+//'**********************************************************
+//'* Method					: Commonactions
+//'* Method  Description	: This method  will have all the common actions/functions
+//'**********************************************************	
 	
 	public Commonactions(WebDriver driver){
 		this.driver=driver;
 		PageFactory.initElements(driver,this);		
 	}
+//'**********************************************************
+//'* Method					: clickLogin
+//'* Method  Description	: This method  will have all the common actions/functions
+//'**********************************************************		
 	public LoginPage clickLogin(){
 		login.click();
 		return new LoginPage(driver);

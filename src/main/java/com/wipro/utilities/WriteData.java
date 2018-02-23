@@ -4,6 +4,11 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//'**********************************************************
+//'* Method					: WriteData
+//'* Method  Description	: This method  will help us to write the data in the excel sheet
+//'* Created By				: gu265058
+//'**********************************************************
 public class WriteData {
 	BufferedWriter writer;
 	

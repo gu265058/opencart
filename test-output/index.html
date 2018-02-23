@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods,   5 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.wipro.testcaes.RegAndAddToCartTcase" hash-for-method="addToCart">addToCart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -112,17 +126,12 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.wipro.testcaes.RegAndAddToCartTcase" hash-for-method="addToCart">addToCart</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.wipro.testcaes.RegAndAddToCartTcase" hash-for-method="addToWishlist">addToWishlist</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.wipro.testcaes.RegAndAddToCartTcase" hash-for-method="registration(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@...)">registration(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@...)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.wipro.testcaes.RegAndAddToCartTcase" hash-for-method="registration(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, ...)">registration(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, ...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -137,6 +146,28 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.wipro.testcaes.RegAndAddToCartTcase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addToCart">
+                  </a> <!-- addToCart -->
+                  <span class="method-name">addToCart</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
+	at com.wipro.openCartPOM.MyWishlistPage.isSuccessToastDisplayed(MyWishlistPage.java:94)
+	at com.wipro.testcaes.RegAndAddToCartTcase.addToCart(RegAndAddToCartTcase.java:176)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -161,13 +192,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="addToCart">
-                  </a> <!-- addToCart -->
-                  <span class="method-name">addToCart</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="addToWishlist">
                   </a> <!-- addToWishlist -->
                   <span class="method-name">addToWishlist</span>
@@ -175,10 +199,10 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="registration(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@...)">
-                  </a> <!-- registration(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@...) -->
+                  <a name="registration(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, ...)">
+                  </a> <!-- registration(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, ...) -->
                   <span class="method-name">registration</span>
-                  <span class="parameters">(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@123)</span>
+                  <span class="parameters">(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@123)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -238,25 +262,25 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'addToCart')
+data.setCell(0, 1, 'addReviewOnViewedProduct')
 data.setCell(0, 2, 'com.wipro.testcaes.RegAndAddToCartTcase')
-data.setCell(0, 3, 70013);
+data.setCell(0, 3, 64748);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'addReviewOnViewedProduct')
+data.setCell(1, 1, 'addToCart')
 data.setCell(1, 2, 'com.wipro.testcaes.RegAndAddToCartTcase')
-data.setCell(1, 3, 64001);
+data.setCell(1, 3, 40113);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'addReviewOnViewedProduct')
 data.setCell(2, 2, 'com.wipro.testcaes.RegAndAddToCartTcase')
-data.setCell(2, 3, 15049);
+data.setCell(2, 3, 27710);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'registration')
 data.setCell(3, 2, 'com.wipro.testcaes.RegAndAddToCartTcase')
-data.setCell(3, 3, 3189);
+data.setCell(3, 3, 4139);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'addToWishlist')
 data.setCell(4, 2, 'com.wipro.testcaes.RegAndAddToCartTcase')
-data.setCell(4, 3, 2391);
+data.setCell(4, 3, 4097);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -294,31 +318,35 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">launchBrowser(chrome)</span>
-                <span class="method-start">214 ms</span>
+                <span class="method-start">204 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">registration(TestingTeam, CHC, perform@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, perf@...)</span>
-                <span class="method-start">5813 ms</span>
+                <span class="method-name">registration(TestingTeam, CHC, perform12456@gmail.com, 1234567895, hyd, hyd, 500000, India, Telangana, perf@123, ...)</span>
+                <span class="method-start">7695 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">addReviewOnViewedProduct(xxx, This is the 1st review , 2)</span>
-                <span class="method-start">9058 ms</span>
+                <span class="method-start">11899 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">addReviewOnViewedProduct(yyy, This is the second review comment on this product, 3)</span>
-                <span class="method-start">24108 ms</span>
+                <span class="method-start">39611 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">addToWishlist</span>
-                <span class="method-start">88111 ms</span>
+                <span class="method-start">104361 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">addToCart</span>
-                <span class="method-start">90504 ms</span>
+                <span class="method-start">108459 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">logout</span>
-                <span class="method-start">160518 ms</span>
+                <span class="method-start">148588 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

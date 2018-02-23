@@ -13,8 +13,6 @@ import org.openqa.selenium.support.PageFactory;
 //'* Method  Description	: This method will have all the properties of page called galaxy page.
 //'* Created By				: gu265058
 //'* Created Date			: 21-Dec-2017 
-//'* Input Parameter		: url,    - URL name were used
-
 //'**********************************************************
 public class Mobile_Samsung_GalaxyPage {
 	
@@ -54,6 +52,7 @@ public class Mobile_Samsung_GalaxyPage {
 		name.sendKeys(reviewerName);
 		inputText.clear();
 		inputText.sendKeys(reviewComments);
+		
 		ratingValue.click();
 		inputCaptcha.clear();
 		

@@ -2,9 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-  <parameter name="Browser" value="chrome"/>
+  <parameter name="Browser" value="ie"/>
+
     <classes>
-      <class name="com.wipro.testcaes.RegAndAddToCartTcase"/>
+      <class name="com.wipro.testcaes.RegAndAddToCartTcase"/> 
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+ 	

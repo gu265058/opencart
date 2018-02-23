@@ -37,34 +37,38 @@ public class RegAndAddToCartTcase {
 	ExtentReports extentReports;
 	ExtentTest extentTest;
 	@BeforeSuite
+//'**********************************************************		
+//Annotation @BeforeSuite invokes events before the suite starts, 
+//'**********************************************************	
+	
 	public void extendreports(){
 		extentReports = new ExtentReports(System.getProperty("user.dir")+"\\Extent-Reports\\report.html",true);
 	}
 	@Parameters({"Browser"})
 	@BeforeTest
 	public void launchBrowser(String Browser){
-		//'**********************************************************		
-		//Method invokes extent report with the given name
-		//'**********************************************************
+//'**********************************************************		
+//Method invokes extent report with the given name
+//'**********************************************************
 		extentTest = extentReports.startTest("Registration and Add to Cart");
 		driver = com.wipro.browser.LaunchBrowser.openBrowser(Browser);
 		extentTest.log(LogStatus.PASS, "Browser Launched and accessed application");
 		
 	}
-	//'**********************************************************
-	//Test to create a new account for the user - [Used Apache POI to read details from Excel]
-	//'**********************************************************
+//'**********************************************************
+//Test to create a new account for the user - [Used Apache POI to read details from Excel]
+//'**********************************************************
 		@Test(priority=1, dataProvider="User Details")
 		public void registration(String firstname,String lastname,String emailAddress,
 				String telephoneNum,String address1,String cityName,String postcodeNum,
 				String country,String zone,String pwd,String confirm_pwd) throws Exception{
 			
 			homePage = new HomePage(driver);
-			
-			//Calling method to click on 'Create Account' link
+//'**********************************************************			
+//Calling method to click on 'Create Account' link
 			registraionPageOC = homePage.clickCreateAccount();
-			
-			//Calling method to fill user details in Registration page and verify account is created
+//'**********************************************************			
+//Calling method to fill user details in Registration page and verify account is created
 			registraionPageOC.inputDetails(firstname,lastname,emailAddress,telephoneNum,address1,cityName,postcodeNum,country,zone,pwd,confirm_pwd);
 			try{
 			Assert.assertEquals("Your Account Has Been Created!", driver.getTitle(),"Titles Not Matched: New Account Not Created");
@@ -73,29 +77,29 @@ public class RegAndAddToCartTcase {
 				extentTest.log(LogStatus.FAIL, "Registration is not successful");
 			}
 		}
-		//'**********************************************************
-		//Test To add reviews on the product
-		//'**********************************************************
+//'**********************************************************
+//Test To add reviews on the product
+//'**********************************************************
 		@Test(priority=2, dataProvider="ReviewInputValues")
 		public void addReviewOnViewedProduct(String name,String reviewComments,String rating){
 			
-			//'**********************************************************
-			//Calling method to navigate to Home Page after registration
-			//'**********************************************************
+//'**********************************************************
+//Calling method to navigate to Home Page after registration
+//'**********************************************************
 			homePage=registraionPageOC.navigateToHome();//should be done from common actions class
-			//'**********************************************************
-			//Calling method to click on Galaxy tab 10.1 advertisement and verify user is redirected to respective product page
-			//'**********************************************************
+//'**********************************************************
+//Calling method to click on Galaxy tab 10.1 advertisement and verify user is redirected to respective product page
+//'**********************************************************
 			galaxyPage=homePage.clickOnGalaxyAdvTab();
 			Assert.assertEquals("Samsung Galaxy Tab 10.1", galaxyPage.heading.getText(), "User is in " +"'"+driver.getTitle()+"'"+" page");
 			extentTest.log(LogStatus.PASS,"User is in "+"'"+"Samsung Galaxy Tab 10.1"+"'"+" page");
-			//'**********************************************************
-			//Calling method to add reviews on the product
-			//'**********************************************************
+//'**********************************************************
+//Calling method to add reviews on the product
+//'**********************************************************
 			galaxyPage.productreview(name, reviewComments, rating);
-			//'**********************************************************
-			//Handling the error toast if displayed, when adding reviews
-			//'**********************************************************
+//'**********************************************************
+//Handling the error toast if displayed, when adding reviews
+//'**********************************************************
 			try{
 				if(galaxyPage.warningToast.getText().equalsIgnoreCase("Warning: Review Text must be between 25 and 1000 characters!")){
 				extentTest.log(LogStatus.PASS,"Warning: Review Text must be between 25 and 1000 characters!");}
@@ -105,90 +109,91 @@ public class RegAndAddToCartTcase {
 			}
 			extentTest.log(LogStatus.PASS, "Added Reviews to the Product");
 		}
-		//'**********************************************************
-		//add product to Wishlist
-		//'**********************************************************
+//'**********************************************************
+//add product to Wishlist
+//'**********************************************************
 		@Test(priority=3)
 		public void addToWishlist() throws Exception{
 			
-			//'**********************************************************
-			//Calling method to click on 'Add to Wishlist' link and verify success toast is displayed
-			//'**********************************************************
+//'**********************************************************
+//Calling method to click on 'Add to Wishlist' link and verify success toast is displayed
+//'**********************************************************
+			Thread.sleep(1500);
 			galaxyPage.clickOnAddToWishlist();
 			Thread.sleep(1500);
 			Assert.assertTrue(galaxyPage.getSuccessMessage().contains("Success"), "Product is not added to Wishlist");
 			extentTest.log(LogStatus.PASS,"Success: You have added Samsung Galaxy Tab 10.1 to your wish list!");
-			//'**********************************************************
-			//Calling method to close the success toast
-			//'**********************************************************
+//'**********************************************************
+//Calling method to close the success toast
+//'**********************************************************
 			galaxyPage.closeSuccesstoast();
-			//'**********************************************************
-			//Calling method to click on 'Wishlist' link and check user is redirected to 'My Wishlist' page
-			//'**********************************************************
+//'**********************************************************
+//Calling method to click on 'Wishlist' link and check user is redirected to 'My Wishlist' page
+//'**********************************************************
 			myWishlistPage = galaxyPage.clickOnWishlist();
 			
 			Assert.assertTrue(myWishlistPage.getTitle().equals("My Wish List"), "User is not redirected to wishlist page");
 			extentTest.log(LogStatus.PASS,"User is redirected to My Wishlist Page");
 			
-			//'**********************************************************
-			//Verifying count in 'Wishlist' link is equal to number of products in the page
-			//'**********************************************************
+//'**********************************************************
+//Verifying count in 'Wishlist' link is equal to number of products in the page
+//'**********************************************************
 			Assert.assertEquals(myWishlistPage.valueInWishlistLink(), myWishlistPage.numOfProductsInTable(), "Value shown in wishlist link is different from number of records in the table");
 			extentTest.log(LogStatus.PASS,"Product added: Value shown in wishlist link is equal to number of records in the table");
 			
 			}
 		@Test(priority=4)
 		public void addToCart() throws Exception{
-			//'**********************************************************
-			//Calling method to get the unit prices of product and write to text file
-			//'**********************************************************
+//'**********************************************************
+//Calling method to get the unit prices of product and write to text file
+//'**********************************************************
 			for(String price: myWishlistPage.storeUnitPrices()){
-				//'**********************************************************
-				/*WriteData is the library class created to write data to text file
-				 * Created object of WriteData class and passed file name to create in specified location
-				 */
-				//'**********************************************************
+//'**********************************************************
+/*WriteData is the library class created to write data to text file
+ * Created object of WriteData class and passed file name to create in specified location
+ */
+//'**********************************************************
 				WriteData writeData = new WriteData("unitprices");
 				writeData.writeTextToFile(price);
 			}		
-			//'**********************************************************
-			//Calling method to add product to cart and verifying the success toast
-			//'**********************************************************
+//'**********************************************************
+//Calling method to add product to cart and verifying the success toast
+//'**********************************************************
 			myWishlistPage.addToCart();
 			Thread.sleep(1500);
 			Assert.assertTrue(myWishlistPage.isSuccessToastDisplayed(), "Success message is not displayed");
 			extentTest.log(LogStatus.PASS,"Add to cart: Success message is displayed");
 			Thread.sleep(3000);
-			//'**********************************************************
-			//Calling method to close the success toast
-			//'**********************************************************
+//'**********************************************************
+//Calling method to close the success toast
+//'**********************************************************
 			myWishlistPage.closeSuccessToast();
 			Thread.sleep(3000);
-			//'**********************************************************
-			//Verifying the success toast is closed or not
-			//'**********************************************************
+//'**********************************************************
+//Verifying the success toast is closed or not
+//'**********************************************************
 			try{
 			Assert.assertTrue(myWishlistPage.isSuccessToastDisplayed());
 			}catch(org.openqa.selenium.NoSuchElementException e){
 				extentTest.log(LogStatus.PASS,"Add to cart: Success Message is closed");
 			}
-			//'**********************************************************
-			//Calling method to remove product from the list and click on continue
-			//'**********************************************************
+//'**********************************************************
+//Calling method to remove product from the list and click on continue
+//'**********************************************************
 			myWishlistPage.removeProductFromWishlistAndContinue();
 			extentTest.log(LogStatus.PASS, "Product is removed from the Wishlist");
 		}
 		@AfterTest
 		public void logout(){
-			//'**********************************************************
-			//Calling method to logout from the account and verify logout message.
-			//'**********************************************************
+//'**********************************************************
+//Calling method to logout from the account and verify logout message.
+//'**********************************************************
 			LogOutPage accountLogoutPage =myWishlistPage.logout();
 			Assert.assertTrue(accountLogoutPage.getlogoutMsg().equals("Account Logout"), "Account Logout message is not displayed");
 			extentTest.log(LogStatus.PASS,"Account Logout message is displayed and the user is signed out from the account");
-			//'**********************************************************
-			//Close the report
-			//'**********************************************************
+//'**********************************************************
+//Close the report
+//'**********************************************************
 			extentReports.endTest(extentTest);
 			extentReports.flush();
 			extentReports.close();
@@ -211,7 +216,9 @@ public class RegAndAddToCartTcase {
 			
 			return data;
 		}
+//***********************************************************************		
 		//Data provider - Sending user details for registration
+//**********************************************************************		
 		@DataProvider(name="User Details")
 		public Object[][] userDetails() throws Exception{
 			

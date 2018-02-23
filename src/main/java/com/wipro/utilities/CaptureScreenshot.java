@@ -8,6 +8,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+
+//'**********************************************************
+//'* Method					: CaptureScreenshot
+//'* Method  Description	: This method  will help us to capture the screenshots
+//'* Created By				: gu265058
+//'**********************************************************
 public class CaptureScreenshot {
 	public static String capture(WebDriver driver, String screenshotName ) throws IOException{
 		TakesScreenshot ts=(TakesScreenshot) driver;

@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 //'* Method  Description	: This method  will have all the details of the Registration page
 //'* Created By				: gu265058
 //'* Created Date			: 21-Dec-2017 
-//'* Input Parameter		: url,    - URL name were used
-
 //'**********************************************************
 public class RegistraionPageOC {
 	WebDriver driver;
